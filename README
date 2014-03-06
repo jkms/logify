@@ -1,10 +1,11 @@
 Renames and organizes personal log files.
 
 ==Notes==
-To add to Thunar (assuming you've aliased logify):
-xfce4-terminal  -e "/home/john/Scripts/logify/logify.sh %f" --hold
+To add to Thunar:
+	xfce4-terminal  -e "/path/to/script/logify/logify.sh %f" --hold
 
 ==Change Log==
 ===2014.03.06===
-*Added thumbnail checking and deletion for Canon cameras (*.THM files)
-*Added encoding to ogv to save space. Requires trash-cli and ffmpeg2theora
+*v0.1
+**Added thumbnail checking and deletion for Canon cameras (*.THM files)
+**Added encoding to ogv to save space. Requires trash-cli and ffmpeg2theora
