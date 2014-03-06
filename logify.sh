@@ -21,7 +21,7 @@ fi
 echo "moved $LOGFILE to $DESTFILE"
 
 echo "I want to cmpare $LOGEXT to MOV"
-if [ "$LOGEXT" = "MOV" ];then
+if [ "$LOGEXT" = "MOV" ] || [ "$LOGEXT" = "mov" ] || [ "$LOGEXT" = "AVI" ] || [ "$LOGEXT" = "avi" ];then
   ffmpeg2theora $DESTFILE 
   OUT=$?
   if [ $OUT -eq 0 ];then
