@@ -5,6 +5,9 @@ To add to Thunar:
 	xfce4-terminal  -e "/path/to/script/logify/logify.sh %f" --hold
 
 ==Change Log==
+===2014.03.07===
+*Abilitiy to scan an entire folder
+
 ===2014.03.06===
 *v0.1
 **Added thumbnail checking and deletion for Canon cameras (*.THM files)
