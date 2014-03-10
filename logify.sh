@@ -13,7 +13,7 @@ movelog() {
 
 	if [ "$LOGEXT" = "MOV" ] || [ "$LOGEXT" = "mov" ] || [ "$LOGEXT" = "AVI" ] || [ "$LOGEXT" = "avi" ];then
 
-		mv $LOGFILE $DESTFILE
+		cp $LOGFILE $DESTFILE
 		if [ -f $THUMBFILE ]; then
 			rm $THUMBFILE
 			echo cleaned up $THUMBFILE
