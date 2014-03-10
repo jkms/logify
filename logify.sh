@@ -12,8 +12,16 @@ movelog() {
 	THUMBFILE=${LOGFILE%.*}.$THUMBEXT
 
 	if [ "$LOGEXT" = "MOV" ] || [ "$LOGEXT" = "mov" ] || [ "$LOGEXT" = "AVI" ] || [ "$LOGEXT" = "avi" ];then
-
+		echo checking for $DESTFILE
+		if [ -f $DESTFILE ]; then
+			echo "Destination file already exists, appending current date..."
+			DESTFILE="$LOGPATH/$FILEPATH-$(date +"%Y%m%d%H%M").$LOGEXT"
+		else
+			echo "all clear!"
+		fi
+		
 		cp $LOGFILE $DESTFILE
+		
 		if [ -f $THUMBFILE ]; then
 			rm $THUMBFILE
 			echo cleaned up $THUMBFILE
@@ -22,9 +30,15 @@ movelog() {
 		fi
 
 		echo "moved $LOGFILE to $DESTFILE"
-
+		OGGLOG=${DESTFILE%.*}.ogv
+		echo "$OGGLOG"
+		if [ -f $OGGLOG ]; then
+			echo "Destination file already exists, appending current date..."
+			OGGLOG="${OGGLOG%.*}-$(date +"%Y%m%d%H%M").ogv"
+			echo "$OGGLOG"
+		fi
 		echo "Renencoding file to OGV..."
-		ffmpeg2theora $DESTFILE > /dev/null 2>&1
+		ffmpeg2theora $DESTFILE -o $OGGLOG > /dev/null 2>&1
 		echo "Reencode complete!"
 
 		OUT=$?
